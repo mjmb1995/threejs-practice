@@ -9,7 +9,24 @@
 	<body>
 		<script src="js/threejs.js"></script>
 		<script>
+			// Perspective Camera is one of my many different types of camers
+
+			var scene = new THREE.Scene();
+
+			// The first attribute is the field of view FOV is the extent of the scene that is seen on the display at any given moment. The value is in degrees.
+
+			// The second one is the aspect ratio. You almost always want to use the width of the element divided by the height
+
+			// The next two attributes are the near and far clipping plane. What that means, is that objects further away from the camera than the value of far or closer than near won't be rendered.
+
+			var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+
+			// Next up is the renderer. This is where the magic happens. In addition to the WebGLRenderer we use here, three.js comes with a few others, often used as fallbacks for users with older browsers or for those who don't have WebGL support for some reason.
 			
+			var renderer = new THREE.WebGLRenderer();
+			renderer.setSize( window.innerWidth, window.innerHeight );
+			document.body.appendChild( renderer.domElement );
+
 		</script>
 	</body>
 </html>
